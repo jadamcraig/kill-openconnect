@@ -7,7 +7,7 @@ COUNTER=10
 while [ $COUNTER -gt 0 ]; do
 	/usr/local/bin/notify-send-all.sh "Killing VPN Sessions in $COUNTER Minutes" \
 		"Use \"sudo killall /usr/local/bin/kill-openconnect.sh\" to cancel."
-	sleep 2
+	sleep 120
 	let COUNTER=COUNTER-2
 done
 
