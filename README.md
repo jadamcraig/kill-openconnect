@@ -12,12 +12,12 @@ When executed, the main `kill-openconnect.sh` script will notify all authenticat
 
 1. Download both scripts (`kill-openconnect.sh` and `notify-send-all.sh`) and place them in `/usr/local/bin`.
 2. Ensure that both scripts are executable by the `root` user only.
-~~~ bash
-$ sudo chown root:root /usr/local/bin/kill-openconnect.sh /usr/local/bin/notify-send-all.sh
-$ sudo chmod 0700 /usr/local/bin/kill-openconnect.sh /usr/local/bin/notify-send-all.sh
-~~~
+	~~~ bash
+	$ sudo chown root:root /usr/local/bin/kill-openconnect.sh /usr/local/bin/notify-send-all.sh
+	$ sudo chmod 0700 /usr/local/bin/kill-openconnect.sh /usr/local/bin/notify-send-all.sh
+	~~~
 3. Schedule the `/usr/local/bin/kill-openconnect.sh` script to run from the `root` user's crontab on a schedule that makes sense.  For instance, if your normal work hours are 8:00am-4:30pm, you may wish the script to run hourly from 5pm until 7am.
-~~~ cron
-00 17-23,00-07 * * * /usr/local/bin/kill-openconnect.sh
-~~~
+	~~~ cron
+	00 17-23,00-07 * * * /usr/local/bin/kill-openconnect.sh
+	~~~
 4. When the script runs, it will send a GNOME Shell notification 10 minutes before it attempts to kill any OpenConnect sessions, and every 2 minutes thereafter until the OpenConnect session is terminated.
